@@ -1,0 +1,102 @@
+td .button-action {
+    border:none;
+    background-color: transparent; 
+    outline:none; 
+}
+ 
+a {
+    color: inherit; }
+ 
+select:invalid {
+    color: #999; }
+  
+.form-right {
+    float:right ;
+}
+
+.logo {
+    height : auto;
+    width: 300px;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+
+.btn.btn-primary {
+    color: #fff;
+    background-color: #da3431;
+    border-color: #da3431;
+}
+
+.btn.btn-primary:hover {
+    background-color: #8f1e1c;
+}
+
+.brand {
+    width: 260px;
+}
+
+.navbar-default .brand {
+    padding: 16px 39px;
+}
+
+#wrapper .sidebar {
+    background-color: #3C3C3C;
+}
+
+/*-------------*/
+.image-preview {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #dcdee3;
+    margin: 3px;
+    position: relative;
+    display: inline-block;
+}
+.image-preview-display{
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	top:-2px;
+	left: -2px;
+	position: absolute;
+	z-index: 2;
+}
+.input-images-product {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	text-indent: -10000;
+	opacity: 0;
+	z-index: 3;
+}
+.image-product-remove{
+	position: absolute;
+    right: 5px;
+    top: 1px;
+    padding: 3px 5px;
+    color: white;
+    transition: all .2s;
+    opacity: 0;
+    transform: scale(0);
+    cursor: pointer;
+    z-index: 4;
+}
+.image-preview:hover .image-product-remove{
+	opacity: 1;
+	transform: scale(1);
+}
+.image-preview:before{
+	content: "+";
+    position: absolute;
+    top: calc(50% - 22.5px);
+    left: calc(50% - 11.5px);
+    font-size: 40px;
+    opacity: 0.3;
+    color: #000;
+    font-weight: bold;
+    z-index: 1;
+}

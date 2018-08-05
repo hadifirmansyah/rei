@@ -28,8 +28,30 @@ class LoginController extends Controller
      **/
     public function postLogin(Request $request)
     {
-        Sentinel::authenticate($request->all());
+        try {
+            $remember = (bool) $request->input('remember_me');
+            // If password is incorrect...
+            if (! Sentinel::authenticate($request->all(), $remember)) {
+                flash()->error('Password is incorrect!');
+                return redirect()->route('auth.login')->withInput();;
+            }
+            return redirect()->route('admin.dashboard');
+        } catch (ThrottlingException $e) {
+            flash()->error('Too many attempts!');
+        } catch (NotActivatedException $e) {
+            flash()->error('Please activate your account before trying to log in.');
+        }
+    }
 
-        return Sentinel::check();
+    /**
+     * Handle logout request.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function logout()
+    {
+        Sentinel::logout();
+
+        return redirect()->route('auth.login');
     }
 }

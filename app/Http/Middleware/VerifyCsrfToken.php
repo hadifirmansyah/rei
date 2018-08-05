@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        'admin/places/cities/find',
+        'admin/places/sub_districts/find'
     ];
 }

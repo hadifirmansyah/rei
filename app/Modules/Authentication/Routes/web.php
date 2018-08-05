@@ -21,4 +21,5 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
     // Login Route
     Route::name('login')->get('/login', 'LoginController@login');
     Route::name('login.post')->post('/login', 'LoginController@postLogin');
+    Route::name('logout')->post('/logout', 'LoginController@logout');
 });
