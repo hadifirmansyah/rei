@@ -64,7 +64,7 @@
 
                                         <!-- Product Description -->
                                         <div class="product-description">
-                                            <span>topshop</span>
+                                            <span>{{ $product->category['name'] }}</span>
                                             <a href={{ route('products.show', ['id' => $product['id'] ]) }}>
                                                 <h6>{{ $product['name'] }}</h6>
                                             </a>
@@ -74,9 +74,19 @@
                                             <!-- Hover Content -->
                                             <div class="hover-content">
                                                 <!-- Add to Cart -->
-                                                <div class="add-to-cart-btn">
-                                                    <a href="#" class="btn essence-btn">Add to Cart</a>
-                                                </div>
+                                                <!-- Form -->
+                                                {!! Form::open(['route' => 'cart.store', 'class' => 'cart-form clearfix']) !!}   
+                                                    {{ Form::hidden('product_id', $product['id']) }}                     
+                                                    {{ Form::hidden('discount', $product['discount']) }}                     
+                                                    {{ Form::hidden('price', $product['price']) }}                     
+                                                    {{ Form::hidden('user_id', user()->id?? 0) }}                     
+                                                    {{ Form::hidden('quantity', 1) }}                     
+                                                    <!-- Cart & Favourite Box -->
+                                                    <div class="cart-fav-box d-flex align-items-center">
+                                                        <!-- Cart -->
+                                                        {{ Form::submit('Add to cart', ['class' => 'btn btn-block essence-btn']) }}
+                                                    </div>
+                                                {!! Form::close() !!}
                                             </div>
                                         </div>
                                     </div>
@@ -103,3 +113,5 @@
     </section>
     <!-- ##### Shop Grid Area End ##### -->
 @endsection
+
+@include('user::purchasing.scripts.cart')

@@ -20,16 +20,16 @@
                     <li class="items even">
                         <div class="infoWrap"> 
                             <div class="cartSection">
-                                <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+                                <img src="{{ asset('storage/product_images/'.$cart->product->images[0]['image']) }}" alt="" class="itemImg" />
                                 <p class="itemNumber">#{{ $cart->product['product_code'] }}</p>
                                 <h3>{{ $cart->product['name'] }}</h3>
-                                <p><input type="text" class="qty" value="{{ $cart['quantity'] }}"/> x Rp {{ $cart['price'] }}</p>
+                                <p><input type="text" class="qty" value="{{ $cart['quantity'] }}" readonly/> x Rp {{ $cart['price'] . ' (' . $cart['discount'] . '%)' }}</p>
                                 <p class="stockStatus"> In Stock</p>
                             </div>  
                             
                             <div class="prodTotal cartSection">
                                 @php
-                                    $fix_price = $cart['quantity'] * $cart['price'];
+                                    $fix_price = $cart['quantity'] * $cart['price'] - ($cart['price'] * $cart['discount'] / 100);
                                     $total += $fix_price;
                                 @endphp
                                 <p class="fix-price" data-price="{{ $fix_price }}">Rp {{ $fix_price }}</p>
@@ -53,7 +53,7 @@
                     </div>
                 </li>
                 <li>
-                    <button class="btn btn-block essence-btn">Checkout</button>
+                    <button onClick="location.href = '{{ route('cart.checkout') }}'" class="btn btn-block essence-btn">Checkout</button>
                 </li>
             </ul>
         </div>

@@ -16,12 +16,17 @@
         </div>
 
         <!-- Single Product Description -->
-        <div class="single_product_desc clearfix">
+        <div class="single_product_desc clearfix" style="max-width:100%; flex: 0 0 50%;">
             <span>{{ $product->category['name'] }}</span>
             <a href="cart.html">
                 <h2>{{ $product['name'] }}</h2>
             </a>
-            <p class="product-price"><span class="old-price">$65.00</span> Rp {{ number_format($product['price'],2,",",".") }}</p>
+            <p class="product-price">
+                @if($product['discount'] > 0)
+                    <span class="old-price">Rp {{ number_format($product['price'],2,",",".") }}</span> 
+                @endif
+                Rp {{ number_format(($product['price'] - ($product['price'] * $product['discount'] / 100)),2,",",".") }}
+            </p>
             <p class="product-desc">{{ $product['description'] }}</p>
 
             <!-- Form -->
