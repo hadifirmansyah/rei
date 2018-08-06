@@ -74,4 +74,3 @@
 @endsection
 
 @include('admin::products.scripts.create')
-

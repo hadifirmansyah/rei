@@ -14,4 +14,28 @@ class Purchasing extends Model
     protected $fillable = [
         'user_id', 'first_name', 'last_name', 'province_id', 'city_id', 'sub_district_id', 'charges', 'address', 'phone_number', 'email'
     ];
+
+    /**
+     * Get the user relation.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Modules\Authentication\Models\User');
+    }
+
+    /**
+     * Get the sub district relation.
+     */
+    public function sub_district()
+    {
+        return $this->belongsTo('App\Models\SubDistrict');
+    }
+
+    /**
+     * Get the details relation.
+     */
+    public function detail()
+    {
+        return $this->hasMany('App\Models\PurchasingDetail');
+    }
 }

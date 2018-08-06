@@ -38,5 +38,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'sentinel_a
         Route::name('sub_districts.destroy')->get('/sub_districts/{sub_district}', 'SubDistrictController@destroy');
         Route::name('sub_districts.find')->post('/sub_districts/find', 'SubDistrictController@find');
     });    
+
+    // Route for purchasing
+    Route::group(['prefix' => 'purchasings', 'as' => 'purchasings.'], function () {
+        Route::name('index')->get('/', 'PurchasingController@index');
+        Route::name('show')->get('/show/{purchasing}', 'PurchasingController@show');
+        Route::name('pay')->post('/pay', 'PurchasingController@pay');
+    });    
     
 });

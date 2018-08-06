@@ -72,15 +72,16 @@
 						<li style="border-top:1px outset white;"><a href="{{ route('admin.products.index') }}" class="{{ Request::is('*/products','*/products/*') ? 'active' : '' }}"><i class="lnr lnr-briefcase"></i> <span>Products</span></a></li>
                         <li style="border-top:1px outset white;"><a href="{{ route('admin.categories.index') }}" class="{{ Request::is('*/categories','*/categories/*') ? 'active' : '' }}"><i class="lnr lnr-list"></i> <span>Categories</span></a></li>
                         <li style="border-top:1px outset white;">
-							<a href="#subPlaces" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Places</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <a href="#subPlaces" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Places</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPlaces" class="collapse ">
-								<ul class="nav">
-									<li><a href="{{ route('admin.places.provinces.index') }}" class="">Province</a></li>
+                                <ul class="nav">
+                                    <li><a href="{{ route('admin.places.provinces.index') }}" class="">Province</a></li>
 									<li><a href="{{ route('admin.places.cities.index') }}" class="">City</a></li>
 									<li><a href="{{ route('admin.places.sub_districts.index') }}" class="">Sub District</a></li>
 								</ul>
 							</div>
 						</li>
+                        <li style="border-top:1px outset white;"><a href="{{ route('admin.purchasings.index') }}" class="{{ Request::is('*/purchasings','*/purchasings/*') ? 'active' : '' }}"><i class="lnr lnr-cart"></i> <span>Purchasings</span></a></li>
 					</ul>
 				</nav>
 			</div>

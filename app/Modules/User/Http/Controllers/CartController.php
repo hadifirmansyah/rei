@@ -47,4 +47,9 @@ class CartController extends Controller
         return view('user::purchasing.checkout', compact(['carts', 'provinces'])); 
     }
 
+    public function delete(Cart $cart) {
+        $cart->delete();
+        return response()->default(200, 'Cart Successfully Deleted');  
+    }
+
 }

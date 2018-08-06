@@ -19,39 +19,7 @@
     <section class="shop_grid_area section-padding-80">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-4 col-lg-3">
-                    <div class="shop_sidebar_area">
-
-                        <!-- ##### Single Widget ##### -->
-                        <div class="widget catagory mb-50">
-
-                            <!--  Catagories  -->
-                            <div class="catagories-menu">
-                                <ul id="menu-content2" class="menu-content collapse show">
-                                    <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#clothing">
-                                        <a href="#">Categories</a>
-                                        <ul class="sub-menu collapse show" id="clothing">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-8 col-lg-9">
+                <div class="col-12 col-md-12">
                     <div class="shop_grid_product_area">
                         <div class="row">
                             <div class="col-12">
@@ -80,7 +48,7 @@
                         <div class="row">
                             @foreach($products as $product)
                                 <!-- Single Product -->
-                                <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="col-12 col-sm-6 col-lg-3">
                                     <div class="single-product-wrapper">
                                         <!-- Product Image -->
                                         <div class="product-img">

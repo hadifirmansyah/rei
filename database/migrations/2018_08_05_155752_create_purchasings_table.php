@@ -29,6 +29,7 @@ class CreatePurchasingsTable extends Migration
             $table->text('address');            
             $table->string('phone_number');            
             $table->string('email');            
+            $table->smallInteger('status')->default(0);            
             $table->timestamps();
         });
     }

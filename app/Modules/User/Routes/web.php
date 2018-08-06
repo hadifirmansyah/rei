@@ -22,6 +22,7 @@ Route::group(['prefix' => ''], function () {
         Route::name('store')->post('/store', 'CartController@store');
         Route::name('count')->get('/count/{user_id}', 'CartController@count');
         Route::name('checkout')->get('/checkout', 'CartController@checkout');
+        Route::name('delete')->get('/delete/{cart}', 'CartController@delete');
     }); 
 
     // Purchasing Route
