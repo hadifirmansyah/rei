@@ -46,9 +46,10 @@
                         </div>
 
                         <div class="row">
+                           
                             @foreach($products as $product)
                                 <!-- Single Product -->
-                                <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="col-md-">
                                     <div class="single-product-wrapper">
                                         <!-- Product Image -->
                                         <div class="product-img">
@@ -58,7 +59,7 @@
 
                                             <!-- Product Badge -->
                                             <div class="product-badge offer-badge">
-                                                <span>-30%</span>
+                                                <span>-{{ $product['discount'] }}%</span>
                                             </div>
                                         </div>
 
@@ -68,8 +69,7 @@
                                             <a href={{ route('products.show', ['id' => $product['id'] ]) }}>
                                                 <h6>{{ $product['name'] }}</h6>
                                             </a>
-                                            <p class="product-price"> Rp {{ number_format($product['price'],2,",",".") }}</p>
-                                            {{-- <p class="product-price"><span class="old-price">$75.00</span> $55.00</p> --}}
+                                            <p class="product-price">{!! $product['discount'] > 0? '<span class="old-price">Rp '.$product['price'].'</span>' : '' !!} RP {{ number_format(get_price($product['price'], $product['discount']),2,",",".") }}</p>
 
                                             <!-- Hover Content -->
                                             <div class="hover-content">

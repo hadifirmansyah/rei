@@ -14,10 +14,9 @@
                         contentType: false,
                     }).done(function(response){
                         $(_this).find("input[type='submit']").prop('disabled', false);                    
-                        console.log(response.meta.message);
                         countCart()
                     }).error(function(xhr, ajaxOptions, thrownError) {
-                        // $(this).find("input[type='submit']").prop('disabled', false);                    
+                        $(_this).find("input[type='submit']").prop('disabled', false);                    
                         alert('Oops! Something went wrong. Please try again.');
                     })
                 }
@@ -34,7 +33,8 @@
                 }).done(function(response){
                     var tempTotal = parseInt($('#total').text());
                     var total = tempTotal - price;
-                    $('#total').text(total)
+                    $('#total').text(total);
+                    countCart();                    
                     _this.parent().parent().parent().hide( 400 );
                 }).error(function(xhr, ajaxOptions, thrownError) {
                     alert('Oops! Something went wrong. Please try again.');

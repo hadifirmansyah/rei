@@ -42,3 +42,11 @@ if (! function_exists('user')) {
         return $user;
     }
 }
+
+if (! function_exists('get_price')) {
+    function get_price($price, $discount)
+    {
+        $result = $price - ($price * $discount / 100);
+        return $result;
+    }
+}

@@ -163,3 +163,7 @@
     height: 120px;
     width: auto !important;
 }
+
+.single-product-wrapper .product-img img {
+    height: 300px;
+}
