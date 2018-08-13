@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'sentinel_auth' => \App\Modules\Authentication\Http\Middleware\SentinelAuth::class,
+        'sentinel_admin' => \App\Http\Middleware\SentinelAdmin::class,
     ];
 }

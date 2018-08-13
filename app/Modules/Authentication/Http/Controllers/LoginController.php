@@ -30,10 +30,16 @@ class LoginController extends Controller
     {
         try {
             $remember = (bool) $request->input('remember_me');
-            // If password is incorrect...
-            if (! Sentinel::authenticate($request->all(), $remember)) {
-                flash()->error('Password is incorrect!');
-                return redirect()->route('auth.login')->withInput();;
+            $user = Sentinel::authenticate($request->all(), $remember);
+            if (!$user) {
+                flash()->error('User not registered!');
+                return redirect()->route('auth.login')->withInput();
+            } else {
+                if (!$user->inRole('super-administrator')) {
+                    Sentinel::logout();
+                    flash()->error('You are not granted!');
+                    return redirect()->route('auth.login')->withInput();
+                }
             }
             return redirect()->route('admin.dashboard');
         } catch (ThrottlingException $e) {
