@@ -87,7 +87,8 @@ select:invalid {
 }
 .image-preview:hover .image-product-remove{
 	opacity: 1;
-	transform: scale(1);
+    transform: scale(1);
+    color: #444;
 }
 .image-preview:before{
 	content: "+";
