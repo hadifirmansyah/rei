@@ -87,9 +87,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        $categories = Category::pluck('name', 'id')->toArray();
+        
+        return view('admin::products.edit')->with([
+            'categories' => $categories,
+            'product' => $product
+        ]);
     }
 
     /**
@@ -98,9 +103,42 @@ class ProductController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
-    {
-        //
+    public function update(Product $product, Request $request)
+    {        
+        try {
+            \DB::beginTransaction();
+            $param = $request->except('_token', '_method');            
+            $product->update($param);
+            $images = [];
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $name = date('Y_m_d_His').'_'.$image->getClientOriginalName();
+                    $images[] = [
+                        'product_id' => $product['id'],
+                        'image' => $name,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ];
+                    $folder_path = public_path('storage/product_images/');
+                    if (!file_exists($folder_path)) {
+                        mkdir($folder_path, 0777);
+                    }
+                    $img = Image::make($image->getRealPath())->resize(450, null, function($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $img->save($folder_path.$name);
+                }
+                ProductImage::insert($images);
+            };
+            if (!empty($param['deleted_images'])) {
+                ProductImage::destroy($param['deleted_images']);
+            }
+            \DB::commit();
+            return response()->default(200, 'Update Succesfully');
+        } catch (\Exception $e) {
+            \DB::rollback();     
+            return response()->default(400, $e->getMessage());                               
+        }
     }
 
     /**
@@ -109,8 +147,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin.products.index');        
     }
 }

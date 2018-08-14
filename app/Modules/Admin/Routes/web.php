@@ -16,6 +16,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'sentinel_a
 
     // Route for products
     Route::resource('products', 'ProductController');
+    Route::name('products.destroy')->get('/products/{product}', 'ProductController@destroy');    
     
     // Route for categories
     Route::resource('categories', 'CategoryController')->except(['show', 'destroy']);
