@@ -101,3 +101,14 @@ select:invalid {
     font-weight: bold;
     z-index: 1;
 }
+.metric .icon {
+    background-color: #da3431;
+}
+
+.ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
+    stroke: #da3431 !important;
+}
+
+.ct-bar {
+    stroke-width: 40px !important;
+}
