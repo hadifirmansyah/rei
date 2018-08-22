@@ -50,3 +50,24 @@ if (! function_exists('get_price')) {
         return $result;
     }
 }
+
+if (! function_exists('send_email')) {
+    /**
+     * Function for Sending Email.
+     * 
+     * @param array $param
+     * @return boolean
+     */
+    function send_email($view, $param, $subject = 'Email Notification')
+    {
+        $data = [
+            'data' => $param
+        ];
+        
+        $mail = Mail::send($view, $data,
+            function($message) use($param, $subject) {
+                $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+                $message->to($param['user']['email'], $param['user']['email'])->subject($subject);
+            });
+    }
+}

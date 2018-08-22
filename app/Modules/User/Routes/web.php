@@ -1,6 +1,9 @@
 <?php
 
 Route::group(['prefix' => ''], function () {
+    // Route::get('/email', function() {
+    //     return view('user::emails.confirmation');
+    // });
     Route::name('home')->get('/', 'HomeController@index');
     
     Route::group(['namespace' => 'Auth'], function () {
@@ -28,6 +31,8 @@ Route::group(['prefix' => ''], function () {
     // Purchasing Route
     Route::group(['prefix' => 'purchasings', 'as' => 'purchasings.'], function () {
         Route::name('store')->post('/', 'PurchasingController@store');
+        Route::name('confirmation')->get('/confirmation/{purchasing}', 'PurchasingController@confirmation');
+        Route::name('confirmation.store')->post('/confirmation', 'PurchasingController@postConfirmation');
     }); 
 
 });

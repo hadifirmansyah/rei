@@ -11,6 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
-//     return redirect()->route('auth.login');
-// });
+Route::group(['as' => 'admin.'], function () {
+    Route::name('places.cities.find')->post('admin/places/cities/find', '\App\Modules\Admin\Http\Controllers\Places\CityController@find');
+    Route::name('places.sub_districts.find')->post('admin/places/sub_districts/find', '\App\Modules\Admin\Http\Controllers\Places\SubDistrictController@find');
+});

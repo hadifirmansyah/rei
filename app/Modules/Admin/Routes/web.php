@@ -33,11 +33,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'sentinel_a
         // Route for city
         Route::resource('cities', 'CityController');
         Route::name('cities.destroy')->get('/cities/{city}', 'CityController@destroy');
-        Route::name('cities.find')->post('/cities/find', 'CityController@find');
         // Route for sub districts
         Route::resource('sub_districts', 'SubDistrictController');
         Route::name('sub_districts.destroy')->get('/sub_districts/{sub_district}', 'SubDistrictController@destroy');
-        Route::name('sub_districts.find')->post('/sub_districts/find', 'SubDistrictController@find');
     });    
 
     // Route for purchasing
