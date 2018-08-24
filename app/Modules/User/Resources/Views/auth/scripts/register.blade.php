@@ -1,8 +1,8 @@
 @push('scripts')
-    {!! JsValidator::formRequest('App\Http\Requests\Front\UserRequest'); !!}
+    {!! JsValidator::formRequest('App\Http\Requests\Front\UserRequest', '#form-register'); !!}
 
     <script>
-        $("form").submit(function(event) {
+        $("#form-register").submit(function(event) {
             event.preventDefault();
             if($(this).valid()){
                 $(this).find("input[type='submit']").prop('disabled', true);

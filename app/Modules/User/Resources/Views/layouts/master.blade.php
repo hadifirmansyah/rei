@@ -170,14 +170,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ Form::label('email', 'Email', ['class' => 'control-label']) }}
-                                    {{ Form::email('email', null, ['id' => 'email', 'class' => 'form-control']) }}
+                                    {{ Form::label('email_user', 'Email', ['class' => 'control-label']) }}
+                                    {{ Form::email('email', null, ['class' => 'form-control']) }}
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ Form::label('password', 'Password', ['class' => 'control-label']) }}
-                                    {{ Form::password('password', ['id' => 'password', 'class' => 'form-control']) }}
+                                    {{ Form::label('password_user', 'Password', ['class' => 'control-label']) }}
+                                    {{ Form::password('password', ['class' => 'form-control']) }}
                                 </div>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
     
     <!-- Laravel Javascript Validation -->
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
-    {!! JsValidator::formRequest('App\Http\Requests\LoginRequest'); !!}
+    {!! JsValidator::formRequest('App\Http\Requests\LoginRequest', '#form-login'); !!}
 
     <script>
         $(function() {

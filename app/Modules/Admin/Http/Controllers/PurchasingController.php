@@ -40,6 +40,6 @@ class PurchasingController extends Controller
     public function print($month)
     {
         $purchasings = Purchasing::whereMonth('created_at', $month)->get();
-        return view('admin::purchasings.general_report', compact(['purchasings']));
+        return view('admin::purchasings.general_report', compact(['purchasings', 'month']));
     }
 }

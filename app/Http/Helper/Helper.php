@@ -28,21 +28,27 @@ function ddr()
 function get_months()
 {
     $months = [
-        '1' => 'January',
-        '2' => 'February',
-        '3' => 'March',
+        '1' => 'Januari',
+        '2' => 'Februari',
+        '3' => 'Maret',
         '4' => 'April',
-        '5' => 'May',
-        '6' => 'June',
-        '7' => 'July',
-        '8' => 'August',
+        '5' => 'Mei',
+        '6' => 'Juni',
+        '7' => 'Juli',
+        '8' => 'Agustus',
         '9' => 'September',
-        '10' => 'October',
+        '10' => 'Oktober',
         '11' => 'November',
-        '12' => 'December'
+        '12' => 'Desember'
     ];
 
     return $months;
+}
+
+function get_month_name($i)
+{
+    $month = get_months()[$i];
+    return $month;
 }
 
 if (! function_exists('roles')) {

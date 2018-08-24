@@ -74,29 +74,29 @@
                                             Laporan Penjualan Rei Corporation
                                         </h1>
                                         <p>
-                                            Bulan Januari
+                                            Bulan {{ get_month_name($month) }}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" style="text-align:center;">
                                 <thead>
                                     <tr>
-                                        <th>Orderer</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Charges</th>
-                                        <th>Phone Number</th>
+                                        <th style="text-align:center;">No</th>
+                                        <th style="text-align:center;">Orderer</th>
+                                        <th style="text-align:center;">Name</th>
+                                        <th style="text-align:center;">Total Order</th>
+                                        <th style="text-align:center;">Phone Number</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($purchasings as $purchasing)
+                                    @foreach ($purchasings as $key => $purchasing)
                                         <tr>
+                                            <td>{{ ++$key }}</td>
                                             <td>{{ $purchasing->user->first_name }}</td>
-                                            <td>{{ $purchasing->first_name }}</td>
-                                            <td>{{ $purchasing->last_name }}</td>
-                                            <td>{{ $purchasing->charges }}</td>
+                                            <td>{{ $purchasing->first_name . ' ' .  $purchasing->last_name }}</td>
+                                            <td>{{ $purchasing->detail->sum('price') }}</td>
                                             <td>{{ $purchasing->phone_number }}</td>
                                         </tr>
                                     @endforeach

@@ -45,13 +45,13 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         {{ Form::label('email', 'Email', ['class' => 'control-label']) }}
-                                        {{ Form::email('email', null, ['id' => 'email', 'class' => 'form-control']) }}
+                                        {{ Form::email('email', null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         {{ Form::label('password', 'Password', ['class' => 'control-label']) }}
-                                        {{ Form::password('password', ['id' => 'password', 'class' => 'form-control']) }}
+                                        {{ Form::password('password', ['class' => 'form-control']) }}
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    {{ Form::submit('Register', ['id' => 'btn-submit', 'class' => 'btn btn-block essence-btn']) }}                                    
+                                    {{ Form::submit('Register', ['class' => 'btn btn-block essence-btn']) }}                                    
                                 </div>                                
                             </div>
                         {!! Form::close() !!}
