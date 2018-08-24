@@ -36,4 +36,10 @@ class PurchasingController extends Controller
         ]);
         return response()->default(200, 'Status Successfully Updated');  
     }
+
+    public function print($month)
+    {
+        $purchasings = Purchasing::whereMonth('created_at', $month)->get();
+        return view('admin::purchasings.general_report', compact(['purchasings']));
+    }
 }

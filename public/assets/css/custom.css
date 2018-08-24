@@ -112,3 +112,8 @@ select:invalid {
 .ct-bar {
     stroke-width: 40px !important;
 }
+
+.modal-header {
+    background-color: #da3431;
+    color: white;
+}

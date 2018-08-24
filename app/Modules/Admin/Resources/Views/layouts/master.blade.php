@@ -82,6 +82,7 @@
 							</div>
 						</li>
                         <li style="border-top:1px outset white;"><a href="{{ route('admin.purchasings.index') }}" class="{{ Request::is('*/purchasings','*/purchasings/*') ? 'active' : '' }}"><i class="lnr lnr-cart"></i> <span>Purchasings</span></a></li>
+                        <li style="border-top:1px outset white;"><a href="{{ route('admin.confirmations.index') }}" class="{{ Request::is('*/confirmations','*/confirmations/*') ? 'active' : '' }}"><i class="lnr lnr-bookmark"></i> <span>Confirmations</span></a></li>
 					</ul>
 				</nav>
 			</div>

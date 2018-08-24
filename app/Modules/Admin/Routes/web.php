@@ -43,6 +43,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'sentinel_a
         Route::name('index')->get('/', 'PurchasingController@index');
         Route::name('show')->get('/show/{purchasing}', 'PurchasingController@show');
         Route::name('pay')->post('/pay', 'PurchasingController@pay');
+        Route::name('print')->get('/print/{month}', 'PurchasingController@print');
+    });    
+
+    // Route for confirmation
+    Route::group(['prefix' => 'confirmations', 'as' => 'confirmations.'], function () {
+        Route::name('index')->get('/', 'ConfirmationController@index');
+        Route::name('show')->get('/show/{confirmation}', 'ConfirmationController@show');
     });    
     
 });

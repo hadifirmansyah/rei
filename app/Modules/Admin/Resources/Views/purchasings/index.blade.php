@@ -10,14 +10,17 @@
 						<!-- PANEL HEADLINE -->
 						<div class="panel">
 							<div class="panel-heading">
-								<h4 class="panel-title">List Of Purchasings</h4>
+                                <h4 class="panel-title">List Of Purchasings</h4>
+                                <div class="right">
+                                    <button type="button" data-toggle="modal" data-target="#myModal"><i class="lnr lnr-printer"></i></button>
+                                </div>
 							</div>
 							<hr>
 							<div class="panel-body">
 								<table id="table" class="table table-bordered display">
 									<thead>
 										<tr>
-											<th>User</th>
+											<th>Orderer</th>
 											<th>First Name</th>
 											<th>Last Name</th>
 											<th>Charges</th>
@@ -45,7 +48,38 @@
 						<!-- END PANEL HEADLINE -->
 					</div>
 				</div>
-			</div>
+            </div>
+            
+             <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Print as Report</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    {{ Form::label('month', 'Month', ['class' => 'control-label']) }}
+                                    {{ Form::select('month', get_months(), null, ['placeholder' => 'Pick a Month', 'id' => 'month', 'class' => 'form-control']) }}                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="print" type="button" class="btn btn-primary">Print</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
 		</div>
 	</div>
 @endsection
+
+@include('admin::purchasings.scripts.index')
