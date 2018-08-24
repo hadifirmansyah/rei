@@ -31,7 +31,8 @@ class SubDistrictRequest extends FormRequest
         return [
             'city_id' => 'required',
             'name' => 'required|min:2|max:30|unique:sub_districts,name,'.$this->id,
-            'charges' => 'required|numeric'
+            'charges' => 'required|numeric',
+            'est' => 'required|numeric'
         ];
     }
 }

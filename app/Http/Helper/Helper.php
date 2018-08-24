@@ -87,7 +87,8 @@ if (! function_exists('send_email')) {
     function send_email($view, $param, $subject = 'Email Notification')
     {
         $data = [
-            'data' => $param
+            'data' => $param,
+            'sub_district' => $param['sub_district']
         ];
         
         $mail = Mail::send($view, $data,

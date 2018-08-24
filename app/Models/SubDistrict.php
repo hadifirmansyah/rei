@@ -12,7 +12,7 @@ class SubDistrict extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'city_id', 'charges'
+        'name', 'city_id', 'charges', 'est'
     ];
 
     /**

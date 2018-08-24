@@ -16,22 +16,28 @@
                             <div class="panel-body">
                                 {!! Form::open(['route' => 'admin.places.sub_districts.store', 'files' => true]) !!}
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 {{ Form::label('city_id', 'City', ['class' => 'control-label']) }}
                                                 {{ Form::select('city_id', $cities, null, ['placeholder' => 'Pick a City', 'id' => 'city_id', 'class' => 'form-control']) }}
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 {{ Form::label('name', 'Sub District Name', ['class' => 'control-label']) }}
                                                 {{ Form::text('name', null, ['id' => 'name', 'class' => 'form-control', 'placeholder' => 'Sub District Name']) }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 {{ Form::label('charges', 'Charges', ['class' => 'control-label']) }}
                                                 {{ Form::text('charges', null, ['id' => 'charges', 'class' => 'form-control', 'placeholder' => 'Sub District Charges']) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                {{ Form::label('est', 'Estimation Time', ['class' => 'control-label']) }}
+                                                {{ Form::number('est', null, ['id' => 'est', 'class' => 'form-control', 'placeholder' => 'Estimation Time', 'min' => 0]) }}
                                             </div>
                                         </div>
                                     </div>

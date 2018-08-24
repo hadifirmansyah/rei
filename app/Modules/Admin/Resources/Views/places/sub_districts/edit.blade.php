@@ -16,24 +16,30 @@
                             <div class="panel-body">
                                 {!! Form::open(['route' => ['admin.places.sub_districts.update', $sub_district['id']], 'files' => true, 'method' => 'put']) !!}
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 {{ Form::label('city_id', 'Province', ['class' => 'control-label']) }}
                                                 {{ Form::select('city_id', $cities, $sub_district['city_id'], ['placeholder' => 'Pick a Province', 'id' => 'city_id', 'class' => 'form-control']) }}
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 {{ Form::label('name', 'Sub District Name', ['class' => 'control-label']) }}
                                                 {{ Form::text('name', $sub_district['name'], ['id' => 'name', 'class' => 'form-control', 'placeholder' => 'Sub District Name']) }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                                <div class="form-group">
-                                                    {{ Form::label('charges', 'Charges', ['class' => 'control-label']) }}
-                                                    {{ Form::text('charges', $sub_district['charges'], ['id' => 'charges', 'class' => 'form-control', 'placeholder' => 'Sub District Charges']) }}
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                {{ Form::label('charges', 'Charges', ['class' => 'control-label']) }}
+                                                {{ Form::text('charges', $sub_district['charges'], ['id' => 'charges', 'class' => 'form-control', 'placeholder' => 'Sub District Charges']) }}
                                             </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                {{ Form::label('est', 'Estimation Time', ['class' => 'control-label']) }}
+                                                {{ Form::number('est', $sub_district['est'], ['id' => 'est', 'class' => 'form-control', 'placeholder' => 'Estimation Time', 'min' => 0]) }}
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-right">
                                         <a href="{{ route('admin.places.sub_districts.index') }}"><button type="button" class="btn btn-default">Cancel</button></a>                                                
