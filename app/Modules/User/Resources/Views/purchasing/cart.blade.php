@@ -12,6 +12,7 @@
             <a href="{{ route('products.index') }}" class="essence-btn" style="float: right; text-align: right;">Continue Shopping</a>
         </div>
         <div class="cart">
+            @include('flash::message')            
             <ul class="cartWrap">
                 @php
                     $total = 0;

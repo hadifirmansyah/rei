@@ -12,7 +12,7 @@ class Purchasing extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'first_name', 'last_name', 'province_id', 'city_id', 'sub_district_id', 'charges', 'address', 'phone_number', 'email'
+        'user_id', 'first_name', 'last_name', 'province_id', 'city_id', 'sub_district_id', 'charges', 'address', 'phone_number', 'email', 'cod'
     ];
 
     /**

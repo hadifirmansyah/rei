@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-12 col-md-12">
                     <div class="checkout_details_area clearfix">
-                        {!! Form::open(['route' => 'purchasings.store']) !!}
+                        {!! Form::open(['route' => 'purchasings.store', 'id' => 'form-checkout']) !!}
                             {{ Form::hidden('user_id', user()->id, ['id' => 'user_id']) }}                                                                
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -81,14 +81,20 @@
                                         {{ Form::text('phone_number', user()->phone_number, ['id' => 'phone_number', 'class' => 'form-control', 'placeholder' => 'Phone Number']) }}
                                     </div>
                                 </div>
-                                <div class="col-6 mb-4">
+                                <div class="col-6 mb-3">
                                     <div class="form-group">
                                         {{ Form::label('email_address', 'Email Address', ['class' => 'control-label']) }}
                                         {{ Form::text('email', user()->email, ['id' => 'email_address', 'class' => 'form-control', 'placeholder' => 'Email Address']) }}
                                     </div>
                                 </div>
+                                <div class="col-12 mb-3">
+                                    <div class="custom-control custom-checkbox d-block mb-2">
+                                        <input name="cod" type="checkbox" class="custom-control-input" id="check-cod" value="1" disabled>
+                                        <label class="custom-control-label" for="check-cod">Cash On Delivery<span class="note-line"> &nbsp *For Bandung Only.</span></label>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="btn btn-block essence-btn mb-30">Checkout</button>                            
+                            <button type="button" id="btn-checkout" class="btn btn-block essence-btn mb-30">Checkout</button>                            
                         {!! Form::close() !!}
                     </div>
                 </div>

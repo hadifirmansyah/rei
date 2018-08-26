@@ -117,6 +117,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'province_id' => 'province',
+        'city_id' => 'city',
+        'sub_district_id' => 'sub district'
+    ],
 
 ];

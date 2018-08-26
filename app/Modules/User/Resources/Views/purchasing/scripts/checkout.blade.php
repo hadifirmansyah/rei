@@ -1,6 +1,6 @@
 @push('scripts')
-
-	<script src="{{ asset('assets/vendor/select2/select2.js') }}"></script>
+    <script src="{{ asset('assets/vendor/select2/select2.js') }}"></script>
+    {!! JsValidator::formRequest('App\Http\Requests\Front\CheckoutRequest'); !!}    
     
     <script>
         $(function() {
@@ -19,6 +19,12 @@
             });
 
             $("#city_id").on('change',function() {
+                $('#check-cod').prop("checked", false);
+                $('#check-cod').prop("disabled", true);
+                var city = $("#city_id option:selected").text();       
+                if (city == 'Bandung') {
+                    $('#check-cod').prop("disabled", false);
+                }         
                 $('#sub_district_id')
                     .find('option')
                     .remove()
@@ -30,6 +36,13 @@
             $("#sub_district_id").on('change',function() {
                 var charges = $("option:selected", this).data('charges');
                 $('#charges').val(charges);
+            });
+
+            $("#btn-checkout").click(function(event) {
+                event.preventDefault();
+                if($("#form-checkout").valid()){
+                    $("#form-checkout").submit();
+                }
             });
         });
 

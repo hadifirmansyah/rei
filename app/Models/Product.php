@@ -12,7 +12,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'product_code', 'price', 'category_id', 'discount', 'description'
+        'name', 'product_code', 'price', 'category_id', 'discount', 'description', 'stock'
     ];
 
     /**
@@ -40,4 +40,21 @@ class Product extends Model
         $this->attributes['product_code'] = 'R'.sprintf("%'02d", $this->category_id).date('dmy').sprintf("%'03d", $this->count()+1);        
     }
 
+    /**
+     * @param $qty
+     */
+    public function addStock($qty)
+    {
+        $this->stock += (int) $qty;
+        $this->save();
+    }
+
+    /**
+     * @param $qty
+     */
+    public function substractStock($qty)
+    {
+        $this->stock -= (int) $qty;
+        $this->save();
+    }
 }

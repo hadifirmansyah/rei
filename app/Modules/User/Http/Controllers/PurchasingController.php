@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Purchasing;
 use App\Models\PurchasingDetail;
 use App\Models\Confirmation;
@@ -27,9 +28,15 @@ class PurchasingController extends Controller
             $purchasing = Purchasing::create($param); 
             $carts = Cart::where('user_id', $param['user_id']);
             foreach($carts->get() as $cart){
+                if ($cart['product']['stock'] < $cart['quantity']) {
+                    flash('Stock of product ' . $cart['product']['name'] . ' was ' . $cart['product']['stock'] . ' units left.')->error();
+                    return redirect()->route('cart.index');
+                }
                 $cart = $cart->only(['product_id', 'price', 'discount', 'quantity']);
                 $cart['purchasing_id'] = $purchasing['id'];
                 PurchasingDetail::create($cart);
+                // Substract the product
+                Product::find($cart['product_id'])->substractStock($cart['quantity']);
             }
             $carts->delete();            
             send_email('user::emails.confirmation', $purchasing, 'Confirmation Order');

@@ -167,3 +167,9 @@
 .single-product-wrapper .product-img img {
     height: 300px;
 }
+
+.note-line {
+    font-size: 10px !important;
+    line-height: 1 !important;
+    color: #9f9f9f !important;
+}
