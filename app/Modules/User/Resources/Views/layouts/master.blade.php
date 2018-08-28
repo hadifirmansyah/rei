@@ -206,7 +206,8 @@
 	{{ Html::script('assets/front/js/classy-nav.min.js') }}            
     <!-- Active js -->
     {{ Html::script('assets/front/js/active.js') }}       
-    
+    {{-- Sweet Alert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Laravel Javascript Validation -->
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
     {!! JsValidator::formRequest('App\Http\Requests\LoginRequest', '#form-login'); !!}
@@ -233,6 +234,8 @@
             });
         });
 
+        $('#flash-overlay-modal').modal();
+        
         function countCart() {
             if('{{ user() }}'){
                 $.ajax({

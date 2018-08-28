@@ -62,4 +62,5 @@
     </div>
 @endsection
 
+@include('user::purchasing.scripts.purchasing')
 @include('user::purchasing.scripts.cart')

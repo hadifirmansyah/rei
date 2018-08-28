@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
+        $this->call(ProvincesTableSeeder::class);
+        $this->call(CitiesTableSeeder::class);
+        $this->call(SubDistrictsTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
 
         //enable foreign key check for this connection before running seeders
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

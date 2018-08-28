@@ -47,4 +47,4 @@
     <!-- ##### Single Product Details Area End ##### -->
 @endsection
 
-@include('user::purchasing.scripts.cart')
+@include('user::purchasing.scripts.purchasing')

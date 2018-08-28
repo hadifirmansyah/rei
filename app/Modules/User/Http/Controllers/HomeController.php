@@ -16,7 +16,8 @@ class HomeController extends Controller
      **/
     public function index()
     {
-        return view('user::general.home');
+        $products = Product::latest()->take(4)->get();
+        return view('user::general.home', compact(['products']));
     }
 
     /**

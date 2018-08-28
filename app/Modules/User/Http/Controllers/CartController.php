@@ -24,7 +24,10 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $param = $request->except('_token');
+        $param = $request->except('_token', 'quantity');
+        // $cart = Cart::updateOrCreate(
+        //     $param, ['quantity' => \DB::raw('quantity + 1')]
+        // );
         $cart = Cart::create($param);
         return response()->default(200, 'Product Successfully Added');  
     }

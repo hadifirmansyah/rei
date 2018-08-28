@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading text-center">
-                        <h2>Popular Products</h2>
+                        <h2>Newest Products</h2>
                     </div>
                 </div>
             </div>
@@ -63,123 +63,45 @@
             <div class="row">
                 <div class="col-12">
                     <div class="popular-products-slides owl-carousel">
+                        @foreach ($products as $product)
+                            <!-- Single Product -->
+                            <div class="single-product-wrapper">
+                                <!-- Product Image -->
+                                <div class="product-img">
+                                    <img src="{{ asset('storage/product_images/'.$product->images[0]['image']) }}" alt="">
+                                    <!-- Hover Thumb -->
+                                    @if(!empty($product->images[1]['image']))
+                                        <img class="hover-img" src="{{ asset('storage/product_images/'.$product->images[0]['image']) }}" alt="">
+                                    @endif
+                                </div>
+                                <!-- Product Description -->
+                                <div class="product-description">
+                                    <span>{{ $product->category['name'] }}</span>
+                                    <a href="{{ route('products.show', ['id' => $product['id'] ]) }}">
+                                        <h6>{{ $product['name'] }}</h6>
+                                    </a>
+                                    <p class="product-price">{!! $product['discount'] > 0? '<span class="old-price">Rp '.$product['price'].'</span>' : '' !!} RP {{ number_format(get_price($product['price'], $product['discount']),2,",",".") }}</p>
 
-                        <!-- Single Product -->
-                        <div class="single-product-wrapper">
-                            <!-- Product Image -->
-                            <div class="product-img">
-                                <img src="{{ asset('assets/front/img/product-img/b-1-1.jpg') }}" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="{{ asset('assets/front/img/product-img/b-1-2.jpg') }}" alt="">
-                            </div>
-                            <!-- Product Description -->
-                            <div class="product-description">
-                                <span>topshop</span>
-                                <a href="single-product-details.html">
-                                    <h6>Knot Front Mini Dress</h6>
-                                </a>
-                                <p class="product-price">$80.00</p>
-
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
+                                    <!-- Hover Content -->
+                                    <div class="hover-content">
+                                        <!-- Add to Cart -->
+                                        <!-- Form -->
+                                        {!! Form::open(['route' => 'cart.store', 'class' => 'cart-form clearfix form-cart']) !!}   
+                                            {{ Form::hidden('product_id', $product['id']) }}                     
+                                            {{ Form::hidden('discount', $product['discount']) }}                     
+                                            {{ Form::hidden('price', $product['price']) }}                     
+                                            {{ Form::hidden('user_id', user()->id?? 0) }}                     
+                                            {{ Form::hidden('quantity', 1) }}                     
+                                            <!-- Cart & Favourite Box -->
+                                            <div class="cart-fav-box d-flex align-items-center">
+                                                <!-- Cart -->
+                                                {{ Form::submit('Add to cart', ['class' => 'btn btn-block essence-btn']) }}
+                                            </div>
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="single-product-wrapper">
-                            <!-- Product Image -->
-                            <div class="product-img">
-                                <img src="{{ asset('assets/front/img/product-img/b-2-1.jpg') }}" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="{{ asset('assets/front/img/product-img/b-2-2.jpg') }}" alt="">
-                            </div>
-                            <!-- Product Description -->
-                            <div class="product-description">
-                                <span>topshop</span>
-                                <a href="single-product-details.html">
-                                    <h6>Poplin Displaced Wrap Dress</h6>
-                                </a>
-                                <p class="product-price">$80.00</p>
-
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="single-product-wrapper">
-                            <!-- Product Image -->
-                            <div class="product-img">
-                                <img src="{{ asset('assets/front/img/product-img/b-3-1.jpg') }}" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="{{ asset('assets/front/img/product-img/b-3-2.jpg') }}" alt="">
-
-                                <!-- Product Badge -->
-                                <div class="product-badge offer-badge">
-                                    <span>-30%</span>
-                                </div>
-
-                            </div>
-                            <!-- Product Description -->
-                            <div class="product-description">
-                                <span>mango</span>
-                                <a href="single-product-details.html">
-                                    <h6>PETITE Crepe Wrap Mini Dress</h6>
-                                </a>
-                                <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="single-product-wrapper">
-                            <!-- Product Image -->
-                            <div class="product-img">
-                                <img src="{{ asset('assets/front/img/product-img/b-4-2.jpg') }}" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="{{ asset('assets/front/img/product-img/b-4-1.jpg') }}" alt="">
-    
-
-                                <!-- Product Badge -->
-                                <div class="product-badge new-badge">
-                                    <span>New</span>
-                                </div>
-
-                            </div>
-                            <!-- Product Description -->
-                            <div class="product-description">
-                                <span>mango</span>
-                                <a href="single-product-details.html">
-                                    <h6>PETITE Belted Jumper Dress</h6>
-                                </a>
-                                <p class="product-price">$80.00</p>
-
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -216,3 +138,5 @@
     </div>
     <!-- ##### Brands Area End ##### -->
 @endsection
+
+@include('user::purchasing.scripts.purchasing')
