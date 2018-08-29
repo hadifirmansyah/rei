@@ -21,8 +21,7 @@
     @yield('head')
     
 </head>
-
-<body>
+<body {!! session('flash_notification') ? 'data-notification=true data-important=' . session('flash_notification')[0]['important'] . ' data-message="' . session('flash_notification')[0]['message']. '" data-level=' . session('flash_notification')[0]['level'] : '' !!}>
     <!-- ##### Header Area Start ##### -->
     <header class="header_area">
         <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
@@ -214,6 +213,25 @@
 
     <script>
         $(function() {
+
+            if ($("body").data('notification')) {
+                if ($("body").data('important')) {
+                    var level = $("body").data('level');
+                    switch(level){
+                        case 'danger':
+                            type = 'error';                    
+                            break;
+                        case 'success':
+                            type = 'success';
+                            break;
+                        default :
+                            type = '';
+                            break
+                    }
+                    swal(ucFirst(type), $("body").data('message'), type);                
+                }
+            }
+
             countCart();
 
             $("#form-login").submit(function(event) {
@@ -236,6 +254,10 @@
 
         $('#flash-overlay-modal').modal();
         
+        function ucFirst(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
         function countCart() {
             if('{{ user() }}'){
                 $.ajax({

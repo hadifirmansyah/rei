@@ -38,8 +38,9 @@ class PurchasingController extends Controller
                 // Substract the product
                 Product::find($cart['product_id'])->substractStock($cart['quantity']);
             }
-            $carts->delete();            
+            $carts->delete();
             send_email('user::emails.confirmation', $purchasing, 'Confirmation Order');
+            flash('Your order has been saved Please Check Your Email')->success()->important();            
             \DB::commit();                   
         } catch (\Exception $e) {
             \DB::rollback();                        

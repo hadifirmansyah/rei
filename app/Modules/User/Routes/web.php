@@ -1,9 +1,6 @@
 <?php
 
 Route::group(['prefix' => ''], function () {
-    // Route::get('/email', function() {
-    //     return view('user::emails.confirmation');
-    // });
     Route::name('home')->get('/', 'HomeController@index');
     
     Route::group(['namespace' => 'Auth'], function () {
