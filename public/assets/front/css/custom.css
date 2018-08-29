@@ -177,3 +177,7 @@
 .cart-fav-box .essence-btn:disabled {
     background-color: #525252;
 }
+
+.user-login-info a {
+    cursor: pointer;
+}

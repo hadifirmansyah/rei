@@ -1,7 +1,13 @@
 @extends('user::layouts/master')
 
 @section('head')
-	{{ Html::style('assets/front/css/cart.css') }}       
+    {{ Html::style('assets/front/css/cart.css') }}
+    
+    <style>
+        .header_area .favourite-area a, .header_area .user-login-info a, .header_area .cart-area a {
+            line-height: 95px;
+        }
+    </style>
 @endsection
 
 @section('content')

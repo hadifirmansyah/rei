@@ -30,7 +30,7 @@
                                                 <td>{{ $category->name }}</td>
                                                 <td>
                                                     <a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-pencil"></i></button></a>
-                                                    <a href="{{ route('admin.categories.destroy', ['id' => $category->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-trash"></i></button></a>
+                                                    <a class="delete" href="{{ route('admin.categories.destroy', ['id' => $category->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-trash"></i></button></a>
                                                 </td>
                                             </tr>
                                         @endforeach

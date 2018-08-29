@@ -82,7 +82,7 @@
                     </div>
                     
                     <div class="user-login-info">
-                        <a href="{{ route('logout') }}"><img src="{{ asset('assets/icon/logout.svg') }}" alt=""></a>
+                        <a id="logout"><img src="{{ asset('assets/icon/logout.svg') }}"></a>
                     </div>
                 @else
                     <div class="user-login-info">
@@ -250,6 +250,22 @@
                     })
                 }
             });
+
+            $("#logout").on("click", function(e) {
+                // var confirmation = false;
+                e.preventDefault()
+                swal({
+                    text: "Are you sure want to logout?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((confirmation) => {
+                    if (confirmation) {
+                        location.href = "{{ route('logout') }}";
+                    }
+                });
+            })
         });
 
         $('#flash-overlay-modal').modal();

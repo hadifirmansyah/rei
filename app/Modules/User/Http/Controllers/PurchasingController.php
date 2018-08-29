@@ -40,7 +40,7 @@ class PurchasingController extends Controller
             }
             $carts->delete();
             send_email('user::emails.confirmation', $purchasing, 'Confirmation Order');
-            flash('Your order has been saved Please Check Your Email')->success()->important();            
+            flash('Your order has been saved, Please check your email')->success()->important();            
             \DB::commit();                   
         } catch (\Exception $e) {
             \DB::rollback();                        

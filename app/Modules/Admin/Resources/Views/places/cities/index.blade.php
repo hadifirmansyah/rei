@@ -32,7 +32,7 @@
                                                 <td>{{ $city->province->name }}</td>
                                                 <td>
                                                     <a href="{{ route('admin.places.cities.edit', ['id' => $city->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-pencil"></i></button></a>
-                                                    <a href="{{ route('admin.places.cities.destroy', ['id' => $city->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-trash"></i></button></a>
+                                                    <a class="delete" href="{{ route('admin.places.cities.destroy', ['id' => $city->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-trash"></i></button></a>
                                                 </td>
                                             </tr>
                                         @endforeach

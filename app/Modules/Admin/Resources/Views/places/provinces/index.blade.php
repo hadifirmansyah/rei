@@ -30,7 +30,7 @@
                                                 <td>{{ $province->name }}</td>
                                                 <td>
                                                     <a href="{{ route('admin.places.provinces.edit', ['id' => $province->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-pencil"></i></button></a>
-                                                    <a href="{{ route('admin.places.provinces.destroy', ['id' => $province->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-trash"></i></button></a>
+                                                    <a class="delete" href="{{ route('admin.places.provinces.destroy', ['id' => $province->id]) }}"><button type="button" class="button-action"><i class="lnr lnr-trash"></i></button></a>
                                                 </td>
                                             </tr>
                                         @endforeach

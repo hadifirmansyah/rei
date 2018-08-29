@@ -41,7 +41,18 @@
             $("#btn-checkout").click(function(event) {
                 event.preventDefault();
                 if($("#form-checkout").valid()){
-                    $("#form-checkout").submit();
+                    swal({
+                        title: "Are you sure?",
+                        text: "Please check your data carefully!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((confirmation) => {
+                        if (confirmation) {
+                            $("#form-checkout").submit();
+                        }
+                    });
                 }
             });
         });

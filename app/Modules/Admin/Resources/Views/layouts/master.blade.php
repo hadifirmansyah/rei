@@ -105,7 +105,9 @@
 	{{ Html::script('assets/scripts/klorofil-common.js') }}
 	{{ Html::script('assets/vendor/jquery-slimscroll/jquery.slimscroll.js') }}
 	{{ Html::script('assets/vendor/dataTables/js/jquery.dataTables.min.js') }}
-	{{ Html::script('assets/vendor/dataTables/js/dataTables.bootstrap.min.js') }}
+    {{ Html::script('assets/vendor/dataTables/js/dataTables.bootstrap.min.js') }}
+    {{-- Sweet Alert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	{{-- <script src="{{ asset('assets/vendor/select2/select2.js') }}"></script> --}}
 	{{-- <script src="{{ asset('assets/vendor/datepicker/datepicker.js') }}"></script> --}}
 	<script>
@@ -114,6 +116,24 @@
 
 	$(document).ready(function() {
     	$('#table').DataTable();
+
+        $('.delete').on('click', function(e){
+            e.preventDefault();
+            var url = $(this).attr('href');
+
+            swal({
+                text: "Are you sure want to delete this item?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((confirmation) => {
+                if (confirmation) {
+                    location.href = url;
+                }
+            });
+            return false;
+        })
 	});
 
 	// $(function() {

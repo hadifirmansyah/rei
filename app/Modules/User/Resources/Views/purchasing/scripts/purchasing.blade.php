@@ -13,11 +13,12 @@
                         processData: false, 
                         contentType: false,
                     }).done(function(response){
-                        $(_this).find("input[type='submit']").prop('disabled', false);                    
+                        $(_this).find("input[type='submit']").prop('disabled', false);  
+                        swal("Success!", "Product has been added to cart!", "success");                                          
                         countCart()
                     }).error(function(xhr, ajaxOptions, thrownError) {
                         $(_this).find("input[type='submit']").prop('disabled', false);                    
-                        alert('Oops! Something went wrong. Please try again.');
+                        swal("Oops!", "Something went wrong. Please try again.", "error");                                          
                     })
                 } else {
                     swal("Oops!", "You need to Login to purchase!", "error");

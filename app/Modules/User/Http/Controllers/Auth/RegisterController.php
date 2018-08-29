@@ -35,5 +35,6 @@ class RegisterController extends Controller
             $role = Sentinel::findRoleBySlug('user');
             $role->users()->attach($user);
         }
+        flash('Your account has been saved.')->success()->important();        
     }
 }
