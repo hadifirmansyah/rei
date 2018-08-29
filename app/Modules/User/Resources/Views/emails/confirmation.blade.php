@@ -265,7 +265,7 @@
                                                                                 <tr style="border-collapse:collapse;">
                                                                                     <td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-top:15px;">
                                                                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:150%;color:#333333;">
-                                                                                            We have received your order, Please make a payment through the BCA bank with the account number 99-999-99. Here are your order details:
+                                                                                            We have received your order,{{ $data['cod']? '' : 'Please make a payment through the BCA bank with the account number 99-999-99.' }} Here are your order details:
                                                                                         </p>
                                                                                     </td>
                                                                                 </tr>
@@ -301,21 +301,23 @@
                                                                                         </tr>
                                                                                     </table>
                                                                                 </tr>
-                                                                                <tr style="border-collapse:collapse;">
+                                                                                @if(!$data['cod']) 
+                                                                                    <tr style="border-collapse:collapse;">
                                                                                         <td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-top:15px;">
                                                                                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:150%;color:#333333;">
                                                                                                 Let us now if you finished your payment by click link below. Your package will be arrived for {{ $sub_district['est'] }} days.
                                                                                             </p>
                                                                                         </td>
                                                                                     </tr>
-                                                                                <tr style="border-collapse:collapse;">
-                                                                                    <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-bottom:15px;padding-top:20px;">
-                                                                                        <span class="es-button-border" style="border-style:solid;border-color:#474745;background:#474745;border-width:0px;display:inline-block;border-radius:20px;width:auto;">
-                                                                                            <a href="{{ route('purchasings.confirmation', ['purchasing' => $data['id']]) }}" class="es-button"
-                                                                                                target="_blank" style="mso-style-priority:100 !important;text-decoration:none !important;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:14px;color:#EFEFEF;border-style:solid;border-color:#e74435;border-width:6px 25px 6px 25px;display:inline-block;background:#e74435;font-weight:normal;font-style:normal;line-height:120%;width:auto;text-align:center;">Confirm Payment</a>
-                                                                                        </span>
-                                                                                    </td>
-                                                                                </tr>
+                                                                                    <tr style="border-collapse:collapse;">
+                                                                                        <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-bottom:15px;padding-top:20px;">
+                                                                                            <span class="es-button-border" style="border-style:solid;border-color:#474745;background:#474745;border-width:0px;display:inline-block;border-radius:20px;width:auto;">
+                                                                                                <a href="{{ route('purchasings.confirmation', ['purchasing' => $data['id']]) }}" class="es-button"
+                                                                                                    target="_blank" style="mso-style-priority:100 !important;text-decoration:none !important;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:14px;color:#EFEFEF;border-style:solid;border-color:#e74435;border-width:6px 25px 6px 25px;display:inline-block;background:#e74435;font-weight:normal;font-style:normal;line-height:120%;width:auto;text-align:center;">Confirm Payment</a>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                @endif
                                                                             </tbody>
                                                                         </table>
                                                                     </td>

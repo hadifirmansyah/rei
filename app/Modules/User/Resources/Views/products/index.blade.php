@@ -49,7 +49,7 @@
                            
                             @foreach($products as $product)
                                 <!-- Single Product -->
-                                <div class="col-md-">
+                                <div class="col-md-3">
                                     <div class="single-product-wrapper">
                                         <!-- Product Image -->
                                         <div class="product-img">
@@ -84,7 +84,7 @@
                                                     <!-- Cart & Favourite Box -->
                                                     <div class="cart-fav-box d-flex align-items-center">
                                                         <!-- Cart -->
-                                                        {{ Form::submit('Add to cart', ['class' => 'btn btn-block essence-btn']) }}
+                                                        {{ Form::submit(($product['stock'] > 0 ? 'Add to cart' : 'Sold Out'), ['class' => 'btn btn-block essence-btn', ($product['stock'] > 0 ? '' : 'disabled')]) }}
                                                     </div>
                                                 {!! Form::close() !!}
                                             </div>

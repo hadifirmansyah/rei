@@ -6,7 +6,7 @@
 
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
-            <div class="product_thumbnail_slides owl-carousel">
+            <div class="product_thumbnail_slide owl-carousel">
                 @if(!empty($product->images))
                     @foreach($product->images as $image)
                         <img src="{{ asset('storage/product_images/'.$image['image']) }}" alt="">                        
@@ -39,7 +39,7 @@
                 <!-- Cart & Favourite Box -->
                 <div class="cart-fav-box d-flex align-items-center">
                     <!-- Cart -->
-                    {{ Form::submit('Add to cart', ['class' => 'btn btn-block essence-btn']) }}
+                    {{ Form::submit(($product['stock'] > 0 ? 'Add to cart' : 'Sold Out'), ['class' => 'btn btn-block essence-btn', ($product['stock'] > 0 ? '' : 'disabled')]) }}                    
                 </div>
             {!! Form::close() !!}
         </div>
@@ -47,4 +47,5 @@
     <!-- ##### Single Product Details Area End ##### -->
 @endsection
 
+@include('user::purchasing.scripts.show')
 @include('user::purchasing.scripts.purchasing')

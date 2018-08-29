@@ -173,3 +173,7 @@
     line-height: 1 !important;
     color: #9f9f9f !important;
 }
+
+.cart-fav-box .essence-btn:disabled {
+    background-color: #525252;
+}

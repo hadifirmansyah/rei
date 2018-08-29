@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>{{ config('app.name') }} - Admin Panel</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Favicon  -->
     <link rel="shortcut icon" href="{{ asset('assets/img/icon.png') }}">

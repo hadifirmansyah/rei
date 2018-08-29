@@ -25,7 +25,7 @@
                                 <p class="itemNumber">#{{ $cart->product['product_code'] }}</p>
                                 <h3>{{ $cart->product['name'] }}</h3>
                                 <p><input type="text" class="qty" value="{{ $cart['quantity'] }}" readonly/> x Rp {{ $cart['price'] . ' (' . $cart['discount'] . '%)' }}</p>
-                                <p class="stockStatus"> In Stock</p>
+                                <p class="stockStatus"> {{ $cart['quantity'] > $cart['product']['stock']? 'Out of Stock' : 'In Stock' }}</p>
                             </div>  
                             
                             <div class="prodTotal cartSection">
@@ -54,7 +54,7 @@
                     </div>
                 </li>
                 <li>
-                    <button onClick="location.href = '{{ route('cart.checkout') }}'" class="btn btn-block essence-btn">Checkout</button>
+                    <button id="btn-checkout" class="btn btn-block essence-btn">Checkout</button>
                 </li>
             </ul>
         </div>

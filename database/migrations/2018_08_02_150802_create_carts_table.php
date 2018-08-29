@@ -21,7 +21,7 @@ class CreateCartsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->integer('price');  
             $table->smallInteger('discount')->default(0);  
-            $table->smallInteger('quantity')->default(1);  
+            $table->smallInteger('quantity')->default(0);  
             $table->timestamps();
         });
     }
