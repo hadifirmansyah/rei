@@ -57,4 +57,13 @@ class Product extends Model
         $this->stock -= (int) $qty;
         $this->save();
     }
+
+    public function scopeSearch($query, $q)
+    {
+        return $query->where(function($query) use ($q)
+        {
+            $query->where('name', 'LIKE', "%$q%")
+                ->orWhere('description', 'LIKE', "%$q%");
+        });
+    }
 }

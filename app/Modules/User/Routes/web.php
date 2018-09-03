@@ -16,6 +16,8 @@ Route::group(['prefix' => ''], function () {
         'create', 'store', 'update', 'edit', 'destroy'
     ]);
 
+    // Route::name('products.search')->get('/products/{category}', 'CategoryController@destroy');    
+
     // Cart Route
     Route::group(['prefix' => 'cart', 'as' => 'cart.'], function () {
         Route::name('index')->get('/', 'CartController@index');

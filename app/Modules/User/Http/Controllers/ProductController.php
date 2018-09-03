@@ -14,9 +14,24 @@ class ProductController extends Controller
      *
      * @return view
      **/
-    public function index()
+    public function index(Request $request, Product $products)
     {
-        $products = Product::all();
+        $param = $request->all();
+        if (!empty($param['category_name'])) {
+            $products = $products->whereHas('category', function($query) use ($param) {
+                $query->where('name', 'like', '%'. $param['category_name'] .'%');
+            });
+        }
+
+        if (!empty($param['q'])) {
+            $products = $products->search($param['q']);
+        }
+
+        $products = $products->get();
+
+        if ($request->ajax()) {
+            return view('user::products.list', compact(['products']));            
+        }
         return view('user::products.index', compact(['products']));
     }
 

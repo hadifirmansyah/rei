@@ -23,7 +23,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ asset('assets/front/img/bg-img/bg-bag.jpg') }});">
                         <div class="catagory-content">
-                            <a href="#">Bags</a>
+                            <a href="{{ route('products.index', ['category_name' => 'bag']) }}">Bags</a>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ asset('assets/front/img/bg-img/bg-shoes.jpg') }});">
                         <div class="catagory-content">
-                            <a href="#">Shoes</a>
+                            <a href="{{ route('products.index', ['category_name' => 'shoes']) }}">Shoes</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ asset('assets/front/img/bg-img/bg-jackets.jpg') }});">
                         <div class="catagory-content">
-                            <a href="#">Jackets</a>
+                            <a href="{{ route('products.index', ['category_name' => 'jacket']) }}">Jackets</a>
                         </div>
                     </div>
                 </div>
